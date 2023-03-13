@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { YOUTUBE_VIDEOS_API } from "../utils/constant";
 import { setVideos } from "../utils/videosSlice";
 import Shimmer from "./Shimar";
-import VideoCard from "./VideoCard";
+import VideoCard, { AdVideoCard } from "./VideoCard";
 
 const VideoContainer = () => {
   const dispatch = useDispatch();
@@ -16,6 +16,7 @@ const VideoContainer = () => {
   };
   useEffect(() => {
     getVideos();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const videos = useSelector((store) => store.video.videoList);
@@ -24,6 +25,7 @@ const VideoContainer = () => {
 
   return (
     <div className="flex flex-wrap">
+      {/* <AdVideoCard info={videos[0]} /> */}
       {videos.map((video) => (
         <Link
           to={
