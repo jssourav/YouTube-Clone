@@ -12,10 +12,10 @@ const WatchPage = () => {
   }, [dispatch]);
 
   return (
-    <div className="px-5 ">
+    <div className="px-5 py-4">
       <iframe
-        width="1200"
-        height="500"
+        width="1000"
+        height="550"
         src={
           "https://www.youtube.com/embed/" +
           searchParams.get("v") +
@@ -24,7 +24,6 @@ const WatchPage = () => {
         title="YouTube video player"
         frameBorder="0"
         allow="accelerometer; autolay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        autoplay
         allowFullScreen
       ></iframe>
     </div>
