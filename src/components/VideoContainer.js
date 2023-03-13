@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { YOUTUBE_VIDEOS_API } from "../utils/constant";
 import { setVideos } from "../utils/videosSlice";
 import Shimmer from "./Shimar";
-import VideoCard, { AdVideoCard } from "./VideoCard";
+import VideoCard from "./VideoCard";
 
 const VideoContainer = () => {
   const dispatch = useDispatch();

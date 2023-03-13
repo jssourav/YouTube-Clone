@@ -1,8 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { toggleMenu } from "../utils/appSlice";
+import { YOUTUBE_SEARCH_API } from "../utils/constant";
 
 const Head = () => {
+  const [searchQuery, setSearchQuery] = useState("");
+  const [suggestions, setSuggestions] = useState([]);
+  const [showSuggestions, setShowSuggestions] = useState(false);
+
+  useEffect(() => {
+    // make an api call after every key press
+    // but if the difference between two api calls is < 200ms, then
+    // decline the api call
+
+    const timer = setTimeout(() => getSearchSuggestions(), 200);
+    return () => clearTimeout(timer);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchQuery]);
+
+  const getSearchSuggestions = async () => {
+    console.log(searchQuery);
+    const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
+    const json = await data.json();
+    console.log(json[1]);
+    setSuggestions(json[1]);
+  };
   const dispatch = useDispatch();
 
   const toggleMenuHandler = () => {
@@ -24,14 +47,32 @@ const Head = () => {
         />
       </div>
       <div className="col-span-10 px-10">
-        <input
-          type="text"
-          className="w-1/2 border border-gray-400 p-2 rounded-l-full"
-        />
+        <div>
+          <input
+            type="text"
+            placeholder="Search"
+            className="px-5 w-1/2 border border-gray-400 p-2 rounded-l-full"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            onFocus={() => setShowSuggestions(true)}
+            onBlur={() => setShowSuggestions(false)}
+          />
 
-        <button className="border border-gray-400 px-5 py-2 rounded-r-full bg-gray-100">
-          🔍
-        </button>
+          <button className="border border-gray-400 px-5 py-2 rounded-r-full bg-gray-100">
+            🔍
+          </button>
+        </div>
+        {showSuggestions && suggestions.length > 0 && (
+          <div className="fixed bg-white mt-2 py-2 w-[32rem] shadow-lg rounded-lg border border-gray-100">
+            <ul>
+              {suggestions.map((s) => (
+                <li className="py-2 px-3 shadow-sm hover:bg-gray-200" key={s}>
+                  🔍 {s}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
       <div className="col-span-1">
         <img
