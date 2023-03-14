@@ -50,3 +50,17 @@ export const timeSince = (publishTime) => {
   }
   return Math.floor(seconds) + " second" + (seconds > 1 ? "s" : "") + " ago";
 };
+
+export const formatDuration = (duration) => {
+  const regex = /PT(\d+)M(\d+)S/;
+  const match = duration.match(regex);
+  if (match) {
+    const minutes = parseInt(match[1]);
+    const seconds = parseInt(match[2]);
+    const formattedMinutes = minutes.toString().padStart(2, "0");
+    const formattedSeconds = seconds.toString().padStart(2, "0");
+    return `${formattedMinutes}:${formattedSeconds}`;
+  } else {
+    return null;
+  }
+};
