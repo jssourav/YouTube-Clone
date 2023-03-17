@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { YOUTUBE_VIDEOS_BY_CATEGORY_API } from "../utils/constant";
+import { YOUTUBE_VIDEOS_SEARCH_API } from "../utils/constant";
 import { setVideos } from "../utils/videosSlice";
 
 const Button = ({ title, categoryId, activeCategoryId, onClick }) => {
@@ -8,7 +8,7 @@ const Button = ({ title, categoryId, activeCategoryId, onClick }) => {
   const dispatch = useDispatch();
   const setVideosHandler = async (categoryId) => {
     const data = await fetch(
-      YOUTUBE_VIDEOS_BY_CATEGORY_API + "&videoCategoryId=" + categoryId
+      YOUTUBE_VIDEOS_SEARCH_API + "&videoCategoryId=" + categoryId
     );
     const json = await data.json();
     dispatch(setVideos(json.items));

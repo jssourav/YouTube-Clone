@@ -16,18 +16,24 @@ const commentData = [
               {
                 name: "Sourav Nag",
                 text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-                replies: [
-                  {
-                    name: "Sourav Nag",
-                    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-                    replies: [],
-                  },
-                  {
-                    name: "Sourav Nag",
-                    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-                    replies: [],
-                  },
-                ],
+                replies: [],
+              },
+            ],
+          },
+        ],
+      },
+      {
+        name: "Sourav Nag",
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        replies: [
+          {
+            name: "Sourav Nag",
+            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            replies: [
+              {
+                name: "Sourav Nag",
+                text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                replies: [],
               },
             ],
           },

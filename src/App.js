@@ -5,13 +5,14 @@ import "./App.css";
 import Body from "./components/Body";
 import Head from "./components/Head";
 import MainContainer from "./components/MainContainer";
+import SearchResults from "./components/SearchResults";
 import WatchPage from "./components/WatchPage";
 import store from "./utils/store";
 
-const appRouter = createBrowserRouter([
+export const appRouter = createBrowserRouter([
   {
     path: "/",
-    element: <Body />,
+    element: <App />,
     children: [
       {
         path: "/",
@@ -20,6 +21,10 @@ const appRouter = createBrowserRouter([
       {
         path: "watch",
         element: <WatchPage />,
+      },
+      {
+        path: "results",
+        element: <SearchResults />,
       },
     ],
   },
@@ -30,13 +35,13 @@ function App() {
     <div>
       <Provider store={store}>
         <Head />
-        <RouterProvider router={appRouter} />
+        <Body />
       </Provider>
     </div>
   );
 }
 
-export default App;
+export default appRouter;
 
 /**
  * Head

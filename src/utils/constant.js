@@ -1,4 +1,4 @@
-const GOOGLE_API_KEY = "AIzaSyDu3_11kpnJO_TTIUUbC7rHlSf4_0wSV8o";
+const GOOGLE_API_KEY = "AIzaSyBEaFRhXSPq3FsBXGy8alEHf1uomIxwZBA";
 const BASE_URL = "https://youtube.googleapis.com/youtube/v3/";
 
 export const YOUTUBE_VIDEOS_API =
@@ -11,7 +11,7 @@ export const YOUTUBE_VIDEOS_CATEGORY_API =
   "videoCategories?part=snippet&hl=en&regionCode=IN&key=" +
   GOOGLE_API_KEY;
 
-export const YOUTUBE_VIDEOS_BY_CATEGORY_API =
+export const YOUTUBE_VIDEOS_SEARCH_API =
   BASE_URL +
   "search?part=snippet&maxResults=25&type=video&key=" +
   GOOGLE_API_KEY;
