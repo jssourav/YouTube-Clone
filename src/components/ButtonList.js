@@ -19,6 +19,7 @@ const ButtonList = () => {
 
   useEffect(() => {
     getCategories();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const items = useSelector((store) => store.category.categoryList);

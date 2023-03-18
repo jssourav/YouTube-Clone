@@ -1,6 +1,6 @@
 import React from "react";
 import { Provider } from "react-redux";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import "./App.css";
 import Body from "./components/Body";
 import Head from "./components/Head";
