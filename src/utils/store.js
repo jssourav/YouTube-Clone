@@ -3,6 +3,7 @@ import appSlice from "./appSlice";
 import categorySlice from "./categorySlice";
 import searchSlice from "./searchSlice";
 import videosSlice from "./videosSlice";
+import chatSlice from "./chatSlice";
 
 const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ const store = configureStore({
     category: categorySlice,
     video: videosSlice,
     search: searchSlice,
+    chat: chatSlice,
   },
 });
 

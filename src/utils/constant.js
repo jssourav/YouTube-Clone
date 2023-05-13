@@ -2,6 +2,8 @@ const GOOGLE_API_KEY = process.env.REACT_APP_GOOGLE_API_KEY;
 const BASE_URL = "https://youtube.googleapis.com/youtube/v3/";
 const CORSANYWHARE_URL = "https://corsanywhere.herokuapp.com/";
 
+export const OFFSET_LIVE_CHAT = 50;
+
 export const YOUTUBE_VIDEOS_API =
   BASE_URL +
   "videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=IN&key=" +
